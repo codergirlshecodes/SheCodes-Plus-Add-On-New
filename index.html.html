@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Time Zone</title>
+</head>
+<body>
+
+  <h1>Select a City</h1>
+
+  <label for="citySelect">Choose a city:</label>
+  <select id="citySelect" onchange="displayTime()">
+    <option value="Europe/Paris">Paris 🇫🇷</option>
+    <option value="Asia/Tokyo">Tokyo 🇯🇵</option>
+    <option value="Australia/Sydney">Sydney 🇦🇺</option>
+  </select>
+
+  <script>
+    function displayTime() {
+      const selectedCity = document.getElementById("citySelect");
+      const selectedTimeZone = selectedCity.options[selectedCity.selectedIndex].value;
+
+      const currentDate = new Date().toLocaleString("en-US", { timeZone: selectedTimeZone });
+
+      alert(`It is ${currentDate} in ${selectedTimeZone}`);
+}
+  </script>
+
+</body>
+</html>
